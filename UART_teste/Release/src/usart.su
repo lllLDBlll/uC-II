@@ -1,0 +1,9 @@
+usart.c:7:6:USART_init	40	static
+usart.c:54:6:USART3_IRQHandler	8	static
+usart.c:70:6:limpa_bufferRX_USART	0	static
+usart.c:77:8:return_bufferRX_USART	0	static
+usart.c:82:10:return_nr_bytes_stored_bufferRx_USART	0	static
+usart.c:87:6:escreve_caracter_USART	0	static
+usart.c:93:6:escreve_msg_USART	0	static
+usart.c:99:6:escreve_bufferRX_USART	8	static
+usart.c:107:6:escreve_bufferRX_USART_limpa	8	static
