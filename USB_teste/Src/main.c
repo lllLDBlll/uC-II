@@ -111,22 +111,27 @@ int main(void)
   uint8_t testDataToSend[8];
     for (uint8_t i = 0; i < 8; i++)
     {
-      testDataToSend[i] = 'A';
+      testDataToSend[i] = 'x';
     }
 
     //static int8_t CDC_Receive_FS(uint8_t* Buf, uint32_t *Len)
     uint8_t Buf[8];
+    uint8_t Buf2[]= "| Time/Hour Configuration Menu |\nType it H to set a new hour\n";
     /* Infinite loop */
+    HAL_Delay(5000);
+    CDC_Transmit_FS(&Buf2[0], 8);
   while (1) {
       HAL_Delay(1000);
       CDC_Transmit_FS(testDataToSend, 8);
 
       USBD_CDC_SetRxBuffer(&hUsbDeviceFS, &Buf[0]);
-      USBD_CDC_ReceivePacket(&hUsbDeviceFS);
+
+  	 //USBD_CDC_ReceivePacket(&hUsbDeviceFS);
 
       HAL_Delay(500);
 
-      CDC_Transmit_FS(Buf, 8);
+      if(Buf[0] == 'P')
+    	  CDC_Transmit_FS("GOIABA", 8);
     }
 }
 
